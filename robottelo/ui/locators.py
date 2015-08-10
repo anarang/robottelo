@@ -1987,5 +1987,16 @@ locators = LocatorDict({
         ("//div[@class='system-summary']/p")),
     "insights.org_selection_msg": (
         By.ID, "content"),
-
+    "insights.unregister_system": (
+        By.XPATH, (
+            "//a[contains(.,'%s')]/../../td/a[contains("
+            "@title,'Unregister System')]")),
+    "insights.unregister_button": (
+        By.XPATH, (
+            "//div[@class='sweet-alert showSweetAlert visible']//"
+            "button[@class='confirm']")),
+    "insights.no_systems_element": (
+        By.XPATH, (
+            "//div[@class='text-center']//h4")
+        ),
 })
