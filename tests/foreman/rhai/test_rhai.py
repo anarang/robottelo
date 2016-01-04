@@ -135,10 +135,13 @@ class RHAITestCase(UITestCase):
                     locators['insights.unregister_button']
                 )
                 self.browser.refresh()
-                time.sleep(30)
+                #time.sleep(30)
+
+            vm.run('while [ ! -f /etc/redhat-access-insights/.unregistered ]; '
+                   'do sleep 1; echo "Still registered :-| "; done;')
 
             result = vm.run('redhat-access-insights')
             self.assertEqual(result.return_code, 1,
                              "System has not been unregistered")
-            vm.get('/var/log/redhat-access-insights/'
-                   'redhat-access-insights.log', './insights_unregister.log')
+            vm.get('/var/log/redhat-access-insights/redhat-access'
+                   '-insights.log', './insights_unregister.log')
