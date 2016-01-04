@@ -135,8 +135,8 @@ class RHAITestCase(UITestCase):
                     locators['insights.unregister_button']
                 )
                 self.browser.refresh()
-                #time.sleep(30)
-
+                time.sleep(80)
+            vm.run('ls -a /etc/redhat-access-insights/')
             vm.run('while [ ! -f /etc/redhat-access-insights/.unregistered ]; '
                    'do sleep 1; echo "Still registered :-| "; done;')
 
