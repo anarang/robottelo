@@ -137,10 +137,11 @@ class RHAITestCase(UITestCase):
                 self.browser.refresh()
                 time.sleep(80)
             vm.run('ls -a /etc/redhat-access-insights/')
-            vm.run('while [ ! -f /etc/redhat-access-insights/.unregistered ]; '
-                   'do sleep 1; echo "Still registered :-| "; done;')
+            #vm.run('while [ ! -f /etc/redhat-access-insights/.unregistered ]; '
+                #   'do sleep 1; echo "Still registered :-| "; done;')
 
             result = vm.run('redhat-access-insights')
+            vm.run('ls -a /etc/redhat-access-insights/')
             self.assertEqual(result.return_code, 1,
                              "System has not been unregistered")
             vm.get('/var/log/redhat-access-insights/redhat-access'
