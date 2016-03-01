@@ -81,7 +81,7 @@ class RHAITestCase(UITestCase):
                                   'Registered clients are not listed')
             finally:
                 vm.get('/var/log/redhat-access-insights/'
-                       'redhat-access-insights.log',
+                       'redhat-access-insights.log.1',
                        './insights_client_registration.log')
 
     def test_negative_org_not_selected(self):
@@ -150,5 +150,5 @@ class RHAITestCase(UITestCase):
                                  "System has not been unregistered")
             finally:
                 vm.get('/var/log/redhat-access-insights/'
-                       'redhat-access-insights.log',
+                       'redhat-access-insights.log.1',
                        './insights_unregister.log')
