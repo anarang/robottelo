@@ -63,8 +63,8 @@ class RHAIClientTestCase(TestCase):
         @Assert: 'redhat-access-insights --test-connection' should return
         zero on a successfully registered machine to RHAI service
         """
-        with VirtualMachine(distro='rhel67') as vm:
-            vm.configure_rhai_client(self.ak_name, self.org_label, 'rhel67')
+        with VirtualMachine(distro='rhel71') as vm:
+            vm.configure_rhai_client(self.ak_name, self.org_label, 'rhel71')
             test_connection = vm.run(
                 'redhat-access-insights --test-connection')
             self.logger.info('Return code for --test-connection {0}'.format(

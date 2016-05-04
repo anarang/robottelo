@@ -67,10 +67,10 @@ class RHAITestCase(UITestCase):
 
         """
         # Register a VM to Access Insights Service
-        with VirtualMachine(distro='rhel67') as vm:
+        with VirtualMachine(distro='rhel71') as vm:
             try:
                 vm.configure_rhai_client(self.ak_name, self.org_label,
-                                         'rhel67')
+                                         'rhel71')
 
                 with Session(self.browser) as session:
                     # view clients registered to Red Hat Access Insights
